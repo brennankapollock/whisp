@@ -3,7 +3,7 @@
   <h3 align="center">Whisp (An Uber Clone)</h3>
 
   <p align="center">
-    A Rideshare app created using React Native, Redux and tailwind CSS
+    A Rideshare app created using React Native, Redux and Tailwind CSS
     <br/>
     <br/>
   </p>
