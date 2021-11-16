@@ -1,4 +1,4 @@
-br/>
+
 <p align="center">
   <h3 align="center">Whisp (An Uber Clone)</h3>
 
