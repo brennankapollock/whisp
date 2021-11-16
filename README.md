@@ -13,9 +13,9 @@
 
 ## About The Project
 
-![alt text](assets/screenshots/Dashboard.png)
 
-<img src="assets/screenshots/Dashboard.png" alt="drawing" width="200"/>
+
+<img src="assets/screenshots/Dashboard.png" alt="dashboard" width="300"/>
 
 
 I created this app to teach myself React Native and Redux. It allows users to "sign in" by entering their name, select a current location and desired destination, select the ideal ride type based on distance and pricing, and then "confirm" the ride to be orderd.
