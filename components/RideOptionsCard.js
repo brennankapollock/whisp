@@ -10,8 +10,12 @@ import React, { useState } from "react";
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
-import { useSelector } from "react-redux";
-import { selectTravelTimeInformation } from "../slices/navSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectCost,
+  selectTravelTimeInformation,
+  setCost,
+} from "../slices/navSlice";
 
 const data = [
   {
@@ -40,6 +44,26 @@ const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
+  const cost = useSelector(selectCost);
+  const dispatch = useDispatch();
+
+  const handleRide = () => {
+    dispatch(
+      setCost({
+        cost: new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(
+          (travelTimeInformation?.duration.value *
+            surgeRate *
+            selected.multiplier) /
+            100
+        ),
+      })
+    );
+    console.log(cost);
+    navigation.navigate("PurchaseCard");
+  };
 
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
@@ -91,7 +115,7 @@ const RideOptionsCard = () => {
           disabled={!selected}
           style={tw`bg-black py-3 mb-3 ${!selected && "bg-gray-400"}`}
         >
-          <Text style={tw`text-center text-white text-xl`}>
+          <Text style={tw`text-center text-white text-xl`} onPress={handleRide}>
             Choose {selected?.title}
           </Text>
         </TouchableOpacity>

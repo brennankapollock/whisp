@@ -10,17 +10,21 @@ import tw from "tailwind-react-native-classnames";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { setDestination } from "../slices/navSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/core";
 import NavFavorites from "./NavFavorites";
 import { Icon } from "react-native-elements";
+import { selectName } from "../slices/userSlice";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const name = useSelector(selectName);
   return (
     <SafeAreaView style={tw`flex-1 bg-white`}>
-      <Text style={tw`text-center py-5 text-xl`}>Good Morning Brennan!</Text>
+      <Text style={tw`text-center pt-6 text-2xl`}>
+        Good Morning {name.name}!
+      </Text>
       <View style={tw`border-t border-gray-200 flex-shrink`}>
         <View>
           <GooglePlacesAutocomplete
@@ -45,7 +49,7 @@ const NavigateCard = () => {
         </View>
         <NavFavorites />
         <View
-          style={tw`flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100`}
+          style={tw`flex-row bg-white justify-evenly py-4 mt-auto border-t border-gray-100`}
         >
           <TouchableOpacity
             onPress={() => navigation.navigate("RideOptionsCard")}
@@ -76,7 +80,7 @@ export default NavigateCard;
 const toInputBoxStyles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    paddingTop: 20,
+    paddingTop: 18,
     flex: 0,
   },
   textInput: {

@@ -1,20 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
-import {
-  View,
-  Text,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { store } from "./store";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-export default function App() {
+const App = () => {
   const Stack = createNativeStackNavigator();
 
   return (
@@ -28,12 +23,20 @@ export default function App() {
           >
             <Stack.Navigator>
               <Stack.Screen
+                name="SignUpScreen"
+                component={SignUpScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
                 options={{
                   headerShown: false,
                 }}
               />
+
               <Stack.Screen
                 name="MapScreen"
                 component={MapScreen}
@@ -47,4 +50,6 @@ export default function App() {
       </NavigationContainer>
     </Provider>
   );
-}
+};
+
+export default App;

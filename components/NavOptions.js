@@ -17,13 +17,29 @@ const data = [
   {
     id: "123",
     title: "Get a Ride",
-    image: "https://links.papareact.com/3pn",
+    image: (
+      <Icon
+        type="font-awesome"
+        color="black"
+        name="car"
+        size={46}
+        style={tw`my-2 pt-2`}
+      />
+    ),
     screen: "MapScreen",
   },
   {
     id: "456",
     title: "Order Food",
-    image: "https://links.papareact.com/28w",
+    image: (
+      <Icon
+        type="font-awesome"
+        color="black"
+        name="cutlery"
+        size={46}
+        style={tw`my-2 pt-2`}
+      />
+    ),
     screen: "EatsScreen",
   },
 ];
@@ -39,19 +55,15 @@ const NavOptions = () => {
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <TouchableOpacity
-          style={tw`p-2 pt-6 pb-8 pt-4 bg-gray-200 m-2 w-40`}
+          style={tw`p-2 pt-6 pb-8 pt-4 bg-gray-300 rounded-xl m-2 w-40`}
           onPress={() => navigation.navigate(item.screen)}
           disabled={!origin}
         >
-          <View style={tw`${!origin && "opacity-20"}`}>
-            <Image style={styles.image} source={{ uri: item.image }} />
-            <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
-            <Icon
-              type="antdesign"
-              color="white"
-              name="arrowright"
-              style={tw`p-2 bg-black rounded-full w-10 mt-4`}
-            />
+          <View>
+            <View style={styles.image}>{item.image}</View>
+            <Text style={tw`mt-2 text-lg text-center font-semibold`}>
+              {item.title}
+            </Text>
           </View>
         </TouchableOpacity>
       )}
@@ -63,8 +75,6 @@ export default NavOptions;
 
 const styles = StyleSheet.create({
   image: {
-    width: 120,
-    height: 120,
     resizeMode: "contain",
   },
 });

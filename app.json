@@ -28,6 +28,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "ride sharing made simple"
+    "description": "ride sharing made simple",
+    "githubUrl": "https://github.com/brennankapollock/whisp"
   }
 }
