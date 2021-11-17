@@ -15,7 +15,7 @@
 
 
 
-I created this app to teach myself React Native and Redux. It allows users to "sign in" by entering their name, select a current location and desired destination, select the ideal ride type based on distance and pricing, and then "confirm" the ride to be orderd.
+I created this app to teach myself React Native and Redux. It allows users to "sign in" by entering their name, selecting a current location and desired destination, selecting the ideal ride type based on distance and pricing, and then "confirm" the ride to be ordered.
 
 
 ## Built With
